@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetMart Manager</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #FF5FC2;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h2 {
+      margin: 10px 0;
+      font-size: 1.8em;
+      color: #FF28B0;
+    }
+
+    .chart {
+      background-color: white;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .footer {
+      background-color: #FF5FC2;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Data Para Pengguna Public Wifi</h1>
+</header>
+
+<section class="dashboard">
+  <div class="card">
+    <p>Pengunjung</p>
+    <h2>1,548</h2>
+  </div>
+  <div class="card">
+    <p>Aktif</p>
+    <h2>50</h2>
+  </div>
+  <div class="card">
+    <p>Waktu Digunakan</p>
+    <h2>24 jam</h2>
+  </div>
+  <div class="card">
+    <p>Kekuatan Sinyal</p>
+    <h2>4G</h2>
+  </div>
+  <div class="card">
+    <p>Sinyal Digunakan</p>
+    <h2>1000GB</h2>
+  </div>
+  <div class="card">
+    <p>Kecepatan Sinyal</p>
+    <h2>140/mbps</h2>
+  </div>
+</section>
+
+<section class="chart">
+  <h2>Lalu Lintas & Leads per Sumber</h2>
+  <canvas id="trafficLeadsChart"></canvas>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2025 Manajemen Jaringan Cerdas</p>
+</footer>
+
+<script>
+  const ctx = document.getElementById('trafficLeadsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Organic Search', 'Direct', 'Social', 'Referral'],
+      datasets: [
+        {
+          label: 'Traffic',
+          data: [6, 4, 5.5, 7],
+          backgroundColor: '#FF5FC2'
+        },
+        {
+          label: 'Leads',
+          data: [5, 3, 4, 6],
+          backgroundColor: '#FFC3E0'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
+
